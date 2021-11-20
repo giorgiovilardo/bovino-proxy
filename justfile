@@ -1,3 +1,5 @@
+set dotenv-load := false
+
 # Format and lint
 default: fmt lint
 
@@ -8,4 +10,4 @@ fmt:
 
 # Lint the code
 lint:
-  flake8 *.py
+  flake8 --ignore=E501,E722 *.py
