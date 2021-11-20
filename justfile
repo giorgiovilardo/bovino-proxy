@@ -11,3 +11,11 @@ fmt:
 # Lint the code
 lint:
   flake8 --ignore=E501,E722 *.py
+
+# Run flask
+run:
+  flask run
+
+# Run ngrok
+host:
+  ngrok http --region=eu 5000
