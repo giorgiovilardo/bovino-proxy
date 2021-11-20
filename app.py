@@ -4,12 +4,14 @@ import os
 import requests
 from dotenv import load_dotenv
 from flask import Flask
+from flask_cors import CORS
 
 from ScToken import token
 
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 def authorized_get(url_params: str):
