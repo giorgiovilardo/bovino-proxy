@@ -3,7 +3,7 @@ import os
 
 import requests
 from dotenv import load_dotenv
-from flask import Flask
+from flask import Flask, Response
 from flask_cors import CORS
 
 from ScToken import token
@@ -35,8 +35,10 @@ def track(track_id):
 
 @app.route("/<int:track_id>/stream")
 def track_stream(track_id):
-    res = authorized_get(f"{track_id}/stream")
-    return res.content
+    data = authorized_get(f"{track_id}/stream")
+    res = Response(data)
+    res.headers["Content-Type"] = "audio/mpeg"
+    return res
 
 
 if __name__ == "__main__":
