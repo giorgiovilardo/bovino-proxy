@@ -1,0 +1,12 @@
+[Unit]
+Description=Bovino proxy v1.0
+After=network.target
+
+[Service]
+User=apiproxy
+WorkingDirectory=/home/apiproxy/bovino-proxy
+ExecStart=/home/apiproxy/bovino-proxy/.venv/bin/gunicorn -w 2 --bind 127.0.0.1:5000 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
