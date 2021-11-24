@@ -52,7 +52,7 @@ class ScToken:
 
     def _refresh(self):
         data = {
-            "grant_type": "grant_type",
+            "grant_type": "refresh_token",
             "client_id": self._cid,
             "client_secret": self._cs,
             "refresh_token": self._refresh_token,
